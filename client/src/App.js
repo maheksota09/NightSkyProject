@@ -1,43 +1,30 @@
 import React, {useState, useEffect} from 'react'
+import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+// Pages
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import NoPage from "./pages/NoPage";
+import Home from "./pages/Home";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
-  // Creating a data variable that contains values from flask backend
-  const [data, setData] = useState([{}]);
-  useEffect(() => {
-    fetch("/login").then(
-      res => res.json()
-    ).then(
-      data => {
-        setData(data);
-        console.log(data);
-      }
-      )
-  },[])
-
+  // Used to create navigation to different pages in application
   return (
     <div>
-      {(typeof data.members === 'undefined') ? (
-        <p>Loading...</p>
-      ) : (
-        data.members.map((member, i) => (
-          <p key={i}> {member} </p>
-        ))
-      )}
-      <Routes>
-        {/* Root pages, located in /pages/ */}
-        <Route path="/" element={<login />} />
-        <Route path="/login" element={<login/>} />
-        <Route path="/signup" element={<signup />} />
-
-        {/* 404 page not found redirect */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/LogIn" element={<LogIn />}/>
+          <Route path="/SignUp" element={<SignUp />}/>
+          {/*Catches unusual requests and forwards to 404*/}
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
 export default App
