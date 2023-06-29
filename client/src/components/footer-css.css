@@ -1,0 +1,11 @@
+footer{
+    background-color: #1B2653;
+}
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .social-icons a {
+    margin-left: 10px;
+  }
