@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+.main-container {
+    background-color: black;
+    font-family: "Abel", sans-serif;
+    color: white;
+    font-size: 15px;
+  }
+.req{
+    color: #FEAE15;
+    font-style: bold;
+}
+
+a{
+    text-decoration: none;
+}
+
+label{
+    font-family: "Abel", sans-serif;
+    color: white;
+    font-size: 15px;
+}
+
+input{
+    font-family: "Abel", sans-serif;
+    color: grey;
+    font-size: 15px;
+    border-radius: 20px;
+    border-color: white;
+    border-width: 5px;
+    background-color: transparent;
+    width: auto;
+    height: 18px;
+}
