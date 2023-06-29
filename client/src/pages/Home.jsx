@@ -7,7 +7,7 @@ function Home() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch("/login").then(
+        fetch("/home").then(
         res => res.json()
         ).then(
         data => {
