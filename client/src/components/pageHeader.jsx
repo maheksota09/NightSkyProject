@@ -9,6 +9,7 @@ function PageHeader() {
         // Change Background Photo
         // Link to correct pages
         // Add hover functionality if desired (I just changed color to the golden we have)
+        // Add functionality to know if user is logged in
 
     const navigate = useNavigate();
 
