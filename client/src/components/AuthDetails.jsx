@@ -9,6 +9,7 @@ const AuthDetails = () => {
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setAuthUser(user);
+                console.log("current user is ", user);
             } else {
                 setAuthUser(null);
             }
@@ -28,7 +29,8 @@ const AuthDetails = () => {
 
     return (
         <div>
-            { authUser ? <> <p> Signed In </p> <button onClick={userSignOut}>Sign Out</button></> : <p> Signed Out </p>}
+            { authUser ? <> <p> {authUser.displayName}</p> <button onClick={userSignOut}>Sign Out</button></> : <p> Signed Out </p>}
+            {/* { authUser ? <> <p> {authUser.displayName}</p> </> : <p> Log In </p>} */}
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import "../styles/LogIn-SignUp.css";
-import { auth } from "../firebase";
+import { auth, googleLogIn } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Header from "../components/PageHeader";
 import AuthDetails from "../components/AuthDetails";
@@ -13,13 +13,14 @@ function LogIn() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Handles if user needs to sign up
   function handleAltBtn(e) {
     e.preventDefault();
     navigate("/SignUp");
   }
   // function to handle authentication will be below
   const handleLogIn = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
@@ -54,10 +55,10 @@ function LogIn() {
             Need to Sign Up?
           </p>
 
-          {/* <AuthDetails /> */}
+          <AuthDetails />
 
           <div className="col-12">
-            <a href="https://www.google.com" className="col-4">
+            <a href="https://www.google.com" className="col-4" onClick={googleLogIn}>
               <svg className="google-account-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g
                 id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>google</title>
                   <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"></rect>

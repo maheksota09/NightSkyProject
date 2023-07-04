@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LogIn-SignUp.css";
+import AuthDetails from "./AuthDetails";
 
 function PageHeader() {
     // Requirements Left
@@ -10,6 +11,7 @@ function PageHeader() {
         // Link to correct pages
         // Add hover functionality if desired (I just changed color to the golden we have)
         // Add functionality to know if user is logged in
+
 
     const navigate = useNavigate();
 
@@ -32,10 +34,10 @@ function PageHeader() {
 
     return (
         <div className="row header-row align-items-center">
-            <div className="col-8 header-logo">
+            <div className="col-6 header-logo">
                     Insert Logo
                 </div>
-            <div className="row col-4">
+            <div className="row col-6">
                 <div className="col-4 header-about-us" onClick={event => handleBtn(event, "AboutUs")}>
                     About Us
                 </div>
@@ -43,7 +45,7 @@ function PageHeader() {
                     Request
                 </div>
                 <div className="col-4 header-log-in" onClick={event => handleBtn(event, "LogIn")}>
-                    Log In
+                    <AuthDetails />
                 </div>
             </div>
         </div>
